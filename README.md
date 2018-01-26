@@ -1,6 +1,12 @@
-xulBlock Advanced (xBA) is a fork of [uBlock Origin](https://github.com/gorhill/uBlock) (uBO) for browsers that support [XUL](https://en.wikipedia.org/wiki/XUL) add-ons: [Pale Moon](http://www.palemoon.org/), [Basilisk](http://www.basilisk-browser.org/), [Waterfox](https://www.waterfoxproject.org/), etc.
+## xulBlock Advanced (xBA)
 
-**xBA is only for [Advanced user mode](https://github.com/gorhill/uBlock/wiki/Advanced-user-features)**. Advanced users know how to fix website breakage caused by their use of xBA. (This includes problems caused by 3rd-party lists.)
+xBA is a fork of [uBlock Origin](https://github.com/gorhill/uBlock) (uBO) for browsers that support [XUL](https://en.wikipedia.org/wiki/XUL) add-ons: [Pale Moon](http://www.palemoon.org/), [Basilisk](http://www.basilisk-browser.org/), [Waterfox](https://www.waterfoxproject.org/), etc.
+
+### [Advanced user mode](https://github.com/gorhill/uBlock/wiki/Advanced-user-features)
+
+I must emphasize that **xBA is only for Advanced users**.
+
+Advanced users know how to fix website breakage caused by their use of xBA. (This includes problems caused by 3rd-party lists.)
 
 **My advice:** If you're already comfortable using uBO in regular mode, xBA is a great way to learn Advanced mode; it's a big learning curve but well worth the effort. However, if you've never used uBO, I suggest starting with regular mode on [uBO 1.14.16](https://github.com/gorhill/uBlock/releases/tag/1.14.16), which is the fork point of xBA. It's important to become comfortable with uBO fundamentals before switching to Advanced mode.
 
@@ -12,9 +18,9 @@ xulBlock Advanced (xBA) is a fork of [uBlock Origin](https://github.com/gorhill/
 * Read [CONTRIBUTING](https://github.com/joey04/xulBlock-Advanced/blob/master/CONTRIBUTING.md) before filing any issue here.
 
 ## Table of Contents
-* [Why this fork](https://github.com/joey04/xulBlock-Advanced#why-this-fork)
-* [What's different from uBO](https://github.com/joey04/xulBlock-Advanced#What's-different-from-uBO)
-* [How to Install it](https://github.com/joey04/xulBlock-Advanced#How-to-Install-it)
+* [Why this fork](#why-this-fork)
+* [What's different from uBO](#whats-different-from-ubo)
+* [How to Install it](#how-to-install-it)
 
 ## Why this fork
 Several reasons, but let me begin by stating my appreciation for uBO. It's the most impressive browser extension I've ever used, with an unrivaled combination of power and efficiency. Its creator, [gorhill](https://github.com/gorhill), brilliantly designed the core features, and with the help of the community, expanded and refined it into a popular tool. By mid-2017 it reached a very high level of robustness.
