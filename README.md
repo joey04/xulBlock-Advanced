@@ -1,6 +1,8 @@
 ## xulBlock Advanced (xBA)
 
-xBA is a fork of [uBlock Origin](https://github.com/gorhill/uBlock) (uBO) for browsers that support [XUL](https://en.wikipedia.org/wiki/XUL) add-ons: [Pale Moon](http://www.palemoon.org/), [Basilisk](http://www.basilisk-browser.org/), [Waterfox](https://www.waterfoxproject.org/), etc.
+xBA is a fork of [uBlock Origin](https://github.com/gorhill/uBlock) (uBO) for browsers that support [XUL](https://en.wikipedia.org/wiki/XUL) add-ons.
+
+I've used it on [Pale Moon](http://www.palemoon.org/), [Basilisk](http://www.basilisk-browser.org/), and [Waterfox](https://www.waterfoxproject.org/). Thus it should work fine for other browsers supporting XUL add-ons.
 
 ### xBA is only for [Advanced users](https://github.com/gorhill/uBlock/wiki/Advanced-user-features)
 
@@ -39,8 +41,8 @@ This is the one feature of uMatrix I wanted that wasn't already in uBO, so I add
 xBA's Panel has significant changes, all described in [its wiki page](https://github.com/joey04/xulBlock-Advanced/wiki/The-Panel). Be sure to read it before starting out on xBA.
 
 ### Hotkeys
-* **`Alt+P`** for the Panel, as described [here](https://github.com/joey04/xulBlock-Advanced/wiki/The-Panel)
-* **`Ctrl+Shift+L`** to open the Logger for the current tab
+* `Alt+P` for the Panel, as described [here](https://github.com/joey04/xulBlock-Advanced/wiki/The-Panel#hotkey-access)
+* `Ctrl+Shift+L` to open the Logger for the current tab
 
 There is no option to change these bindings; for that you need a separate hotkey manager extension, e.g. Menu Wizard.
 
@@ -64,7 +66,7 @@ xBA enforces a strict word-boundary policy for prefix1 rules, as detailed [here]
 xBA's SQLite database is located in your profile base directory, not uBO's sub-directory. The  filename is the same.
 
 ## How to Install it
-If you have uBO installed, either disable or remove it before installing xBA. *Do not* run uBO and xBA at the same time because strange things may happen. (Likewise, disable AdBlock Plus or any other blocker extension. Only use one blocker at a time.)
+If you have uBO installed, either disable or remove it before installing xBA. Don't run uBO and xBA at the same time because strange things may happen. (Likewise, disable AdBlock Plus or any other blocker extension. Only use one blocker at a time.)
 
 Download the `xulBlock-Advanced.xpi` file from the [Releases page](https://github.com/joey04/xulBlock-Advanced/releases). Then drag the xpi file into the browser window. The install dialog should appear. If that's not working, open the `about:addons` page (Tools->Add-ons) then drag it into that window.
 
