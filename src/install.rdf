@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RDF xmlns="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:em="http://www.mozilla.org/2004/em-rdf#">
+    <Description about="urn:mozilla:install-manifest">
+        <em:id>xulblock@advanced</em:id>
+        <em:version>1.0</em:version>
+        <em:name>xulBlock Advanced</em:name>
+        <em:description>XUL fork of uBlock Origin for Advanced users</em:description>
+        <em:homepageURL>https://github.com/joey04/xulBlock-Advanced</em:homepageURL>
+        <em:creator>joe04</em:creator>
+        <em:type>2</em:type>
+        <em:bootstrap>true</em:bootstrap>
+        <em:multiprocessCompatible>true</em:multiprocessCompatible>
+        <em:optionsType>2</em:optionsType>
+
+        <!-- Firefox -->
+        <em:targetApplication>
+            <Description>
+                <em:id>{ec8030f7-c20a-464f-9b0e-13a3a9e97384}</em:id>
+                <em:minVersion>24.0</em:minVersion>
+                <em:maxVersion>56.*</em:maxVersion>
+            </Description>
+        </em:targetApplication>
+
+        <!-- SeaMonkey -->
+        <em:targetApplication>
+            <Description>
+                <em:id>{92650c4d-4b8e-4d2a-b7eb-24ecf4f6b63a}</em:id>
+                <em:minVersion>2.24</em:minVersion>
+                <em:maxVersion>*</em:maxVersion>
+            </Description>
+        </em:targetApplication>
+
+        <!-- Pale Moon -->
+        <em:targetApplication>
+            <Description>
+                <em:id>{8de7fcbb-c55c-4fbe-bfc5-fc555c87dbc4}</em:id>
+                <em:minVersion>27.0</em:minVersion>
+                <em:maxVersion>*</em:maxVersion>
+            </Description>
+        </em:targetApplication>
+    </Description>
+</RDF>
