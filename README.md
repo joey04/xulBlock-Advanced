@@ -11,11 +11,10 @@ Advanced users know how to fix website breakage caused by their use of xBA. (Thi
 **My advice:** If you're already comfortable using uBO in regular mode, xBA is a great way to learn Advanced mode; it's a big learning curve but well worth the effort. However, if you've never used uBO, I suggest starting with regular mode on [uBO 1.14.16](https://github.com/gorhill/uBlock/releases/tag/1.14.16), which is the fork point of xBA. It's important to become comfortable with uBO fundamentals before switching to Advanced mode.
 
 ## Issues
-* Don't ask for help with un-breaking sites. Advanced users figure these things out themselves.
-* Contact your list maintainer for any filter problems you encounter. (xBA's list management is the same as uBO's.)
-* Don't ask for advice. The [uBO wiki](https://github.com/gorhill/uBlock/wiki) already has good advice. The [Reddit forum](https://www.reddit.com/r/uBlockOrigin/) may have some too. The most important thing, though, is spending your own time and effort to learn the tool well.
-* If you encounter an xBA bug, check the [Known problems](https://github.com/joey04/xulBlock-Advanced/wiki/Known-problems) wiki page and the issue tracker to see if it's already documented.
+* If you suspect an xBA bug, check the [Known problems](https://github.com/joey04/xulBlock-Advanced/wiki/Known-problems) wiki page and the issue tracker to see if it's already documented.
 * Read [CONTRIBUTING](https://github.com/joey04/xulBlock-Advanced/blob/master/CONTRIBUTING.md) before filing any issue here.
+
+Remember, as an Advanced user, you are expected to figure out all site breakage by yourself; don't ask for help here. If the cause is a 3rd-party filter list problem, contact the list maintainer.
 
 ## Table of Contents
 * [Why this fork](#why-this-fork)
