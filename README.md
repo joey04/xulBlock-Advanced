@@ -6,17 +6,17 @@ I've used it on [Pale Moon](http://www.palemoon.org/), [Basilisk](http://www.bas
 
 ### xBA is only for [Advanced users](https://github.com/gorhill/uBlock/wiki/Advanced-user-features)
 
-The main purpose of xBA is to enhance the Advanced user experience, most prominently with changes to the panel and the ability to spoof Referers. These and other changes are covered below.
+One purpose of xBA is to enhance the Advanced user experience, most prominently with changes to the panel and the ability to spoof Referers. These and other changes are covered below.
 
-For uBO users not already on Advanced mode but interested in learning it, xBA is a great way to do so. It's a big learning curve but well worth the effort.
+For uBO users not already on Advanced mode but interested in learning it, xBA is a great way to do so. It's a big learning curve, but xBA can help you learn it more efficiently, especially with its panel improvements for viewing domain connectivity.
 
-But I must emphasize that it's important to become comfortable with uBO fundamentals before switching to Advanced mode. A more aggresive use of the tool means you will be breaking websites and thus need to learn how to fix things.
+I must emphasize, though, that it's important to become comfortable with uBO fundamentals before switching to Advanced mode. Tapping into the power of Advanced mode means you will likely be breaking websites and thus need to learn the art of fixing them to get desired functionality with minimal domain connectivity.
 
 ## Issues
 * If you suspect an xBA bug, check the [Known problems](https://github.com/joey04/xulBlock-Advanced/wiki/Known-problems) wiki page and the issue tracker to see if it's already documented.
 * Read [CONTRIBUTING](https://github.com/joey04/xulBlock-Advanced/blob/master/CONTRIBUTING.md) before filing any issue here.
 
-As an Advanced user, you are expected to figure out all site breakage by yourself; don't ask for help here. If the cause is a 3rd-party filter list problem, contact the list maintainer.
+As an Advanced user, you are expected to figure out all website breakage by yourself; don't ask for help here. If the cause is a 3rd-party filter list problem, contact the list maintainer.
 
 ## Table of Contents
 * [Why this fork](#why-this-fork)
@@ -30,16 +30,18 @@ As an Advanced user, you are expected to figure out all site breakage by yoursel
 * [How to Install it](#how-to-install-it)
 
 ## Why this fork
-Several reasons, but let me begin by stating my appreciation for uBO. It's the most impressive browser extension I've ever used, with an unrivaled combination of power and efficiency. Its creator, [gorhill](https://github.com/gorhill), brilliantly designed the core features, and with the help of the community, expanded and refined it into a popular tool. By mid-2017 it reached a very high level of robustness.
+I mentioned earlier that one purpose of xBA is to enhance the Advanced user experience. Another purpose is to maintain the greatness that uBO already has attained as a XUL add-on. I personally would like to keep using xBA for as long as there are browsers that support it. After all, I use it alongside a dozen other XUL add-ons that combine to give me a richly customized web experience. I have no interest in downgrading to WebExtensions or similar for my primary browser.
 
-Much of the power of uBO stems from being a very hands-on tool in Advanced mode. For me, this has meant lots of time spent with the panel and logger on my primary browser, Pale Moon. This, in turn, revealed a number of ways to improve uBO for it. I ended up making these changes for my own use, as most of my suggestions were either declined or ignored. (I'm not bitter about this; it's how gorhill has managed his busy issue tracker according to [his own priorities](https://github.com/gorhill/uBlock/issues/2649#issuecomment-304310972).)
+Now I'll briefly explain other reasons for xBA, starting with my appreciation for uBO. It's the most impressive browser extension I've ever used, with an unrivaled combination of power and efficiency. Its creator, [gorhill](https://github.com/gorhill), brilliantly designed the core features, and with the help of the community, expanded and refined it into a popular tool. By mid-2017 it reached a very high level of robustness, especially as a XUL add-on.
+
+Much of the power of uBO stems from being a very hands-on tool in Advanced mode. For me, this has meant lots of time spent with the panel and logger on my primary browser, Pale Moon. This, in turn, revealed a number of ways to improve uBO for it. I ended up making these changes for my own use, as most of my suggestions were either declined or ignored by gorhill. (I'm not bitter about this; it's typical of how he has managed the busy uBO issue tracker according to [his own priorities](https://github.com/gorhill/uBlock/issues/2649#issuecomment-304310972).)
 
 I first modified uBO in 2016, but I didn't think to make a publicly-available fork until January 2018. By then, I'd already accumulated a number of changes and Mozilla had recently removed its support of XUL add-ons in Firefox 57. Starting around mid-2017, gorhill's focus shifted to the new WebExt version of uBO for Firefox, which is understandable for a number of reasons, including WebExt having much in common with the Chrome version. As a result, XUL uBO was effectively mothballed, as shown [here](https://github.com/gorhill/uBlock/wiki/Firefox-WebExtensions/1f950bc8d0bfcd55b281549b89e102575924c0ba#future-of-ubolegacy), [here](https://github.com/gorhill/uBlock/issues/3306), and [here](https://github.com/gorhill/uBlock/issues/3464).
 
 This is why uBO 1.14.16, released in October 2017, was an easy choice as the fork point for xBA. It's the last version before major refactoring started to land, and I'd already been using my modified version of it for several months without any problems.
 
 ## What's different from uBO
-There are important changes in xBA, but it must be stated that the _vast majority_ of behavior remains unchanged, especially from the fork point of [uBO 1.14.16](https://github.com/gorhill/uBlock/releases/tag/1.14.16).
+There are important changes in xBA, but the _vast majority_ of behavior remains unchanged, especially from the fork point of [uBO 1.14.16](https://github.com/gorhill/uBlock/releases/tag/1.14.16).
 
 ### HTTP Referer spoofing
 This is the one feature of uMatrix I wanted that wasn't already in uBO, so I added it. See [its wiki page](https://github.com/joey04/xulBlock-Advanced/wiki/HTTP-Referer-spoofing) for all info.
