@@ -2,23 +2,31 @@
 
 xBA is a fork of [uBlock Origin](https://github.com/gorhill/uBlock) (uBO) for browsers that support [XUL](https://en.wikipedia.org/wiki/XUL) add-ons.
 
-I've used it on [Pale Moon](http://www.palemoon.org/), [Basilisk](http://www.basilisk-browser.org/), and [Waterfox](https://www.waterfoxproject.org/). Thus it should work fine for other browsers supporting XUL add-ons.
+I've used it on [Pale Moon](http://www.palemoon.org/), [Basilisk](http://www.basilisk-browser.org/), and [Waterfox](https://www.waterfoxproject.org/). It also should work fine on other browsers with XUL support.
 
 ### xBA is only for [Advanced users](https://github.com/gorhill/uBlock/wiki/Advanced-user-features)
 
-Advanced users know how to fix website breakage caused by their use of xBA. (This includes problems caused by 3rd-party lists.)
+The main purpose of xBA is to enhance the Advanced user experience, most prominently with changes to the panel and the ability to spoof Referers. These and other changes are covered below.
 
-**My advice:** If you're already comfortable using uBO in regular mode, xBA is a great way to learn Advanced mode; it's a big learning curve but well worth the effort. However, if you've never used uBO, I suggest starting with regular mode on [uBO 1.14.16](https://github.com/gorhill/uBlock/releases/tag/1.14.16), which is the fork point of xBA. It's important to become comfortable with uBO fundamentals before switching to Advanced mode.
+For uBO users not already on Advanced mode but interested in learning it, xBA is a great way to do so. It's a big learning curve but well worth the effort.
+
+But I must emphasize that it's important to become comfortable with uBO fundamentals before switching to Advanced mode. A more aggresive use of the tool means you will be breaking websites and thus need to learn how to fix things.
 
 ## Issues
 * If you suspect an xBA bug, check the [Known problems](https://github.com/joey04/xulBlock-Advanced/wiki/Known-problems) wiki page and the issue tracker to see if it's already documented.
 * Read [CONTRIBUTING](https://github.com/joey04/xulBlock-Advanced/blob/master/CONTRIBUTING.md) before filing any issue here.
 
-Remember, as an Advanced user, you are expected to figure out all site breakage by yourself; don't ask for help here. If the cause is a 3rd-party filter list problem, contact the list maintainer.
+As an Advanced user, you are expected to figure out all site breakage by yourself; don't ask for help here. If the cause is a 3rd-party filter list problem, contact the list maintainer.
 
 ## Table of Contents
 * [Why this fork](#why-this-fork)
 * [What's different from uBO](#whats-different-from-ubo)
+  * [Referer spoofing](#http-referer-spoofing)
+  * [The Panel](#the-panel)
+  * [Hotkeys](#hotkeys)
+  * [Popup blocking](#blocking-popups)
+  * [CSP Report blocking](#blocking-csp-reports)
+  * [Other changes](#other-changes)
 * [How to Install it](#how-to-install-it)
 
 ## Why this fork
@@ -26,7 +34,7 @@ Several reasons, but let me begin by stating my appreciation for uBO. It's the m
 
 Much of the power of uBO stems from being a very hands-on tool in Advanced mode. For me, this has meant lots of time spent with the panel and logger on my primary browser, Pale Moon. This, in turn, revealed a number of ways to improve uBO for it. I ended up making these changes for my own use, as most of my suggestions were either declined or ignored. (I'm not bitter about this; it's how gorhill has managed his busy issue tracker according to [his own priorities](https://github.com/gorhill/uBlock/issues/2649#issuecomment-304310972).)
 
-I first modified uBO in 2016, but I didn't think to make a publicly-available fork until January 2018. By then, I'd already accumulated a number of changes and Mozilla had recently removed its support of XUL add-ons in Firefox 57. Starting around mid-2017, gorhill's focus shifted to the new WebExt version of uBO for Firefox, which is understandable for a number of reasons, including WebExt having much in common with the Chrome version. As a result, XUL uBO was effectively mothballed, as shown [here](https://github.com/gorhill/uBlock/issues/3046), [here](https://github.com/gorhill/uBlock/wiki/Firefox-WebExtensions/1f950bc8d0bfcd55b281549b89e102575924c0ba#future-of-ubolegacy), and [here](https://github.com/gorhill/uBlock/issues/3306).
+I first modified uBO in 2016, but I didn't think to make a publicly-available fork until January 2018. By then, I'd already accumulated a number of changes and Mozilla had recently removed its support of XUL add-ons in Firefox 57. Starting around mid-2017, gorhill's focus shifted to the new WebExt version of uBO for Firefox, which is understandable for a number of reasons, including WebExt having much in common with the Chrome version. As a result, XUL uBO was effectively mothballed, as shown [here](https://github.com/gorhill/uBlock/wiki/Firefox-WebExtensions/1f950bc8d0bfcd55b281549b89e102575924c0ba#future-of-ubolegacy), [here](https://github.com/gorhill/uBlock/issues/3306), and [here](https://github.com/gorhill/uBlock/issues/3464).
 
 This is why uBO 1.14.16, released in October 2017, was an easy choice as the fork point for xBA. It's the last version before major refactoring started to land, and I'd already been using my modified version of it for several months without any problems.
 
