@@ -10,11 +10,10 @@ One purpose of xBA is to enhance the Advanced user experience, with a [panel](ht
 
 xBA is not just for current Advanced users, though. It's also a good choice for regular uBO users with a desire to learn Advanced mode.
 
-## Issues
-* If you suspect an xBA bug, check the [Known problems](https://github.com/joey04/xulBlock-Advanced/wiki/Known-problems) wiki page and the issue tracker to see if it's already documented.
-* Read [CONTRIBUTING](https://github.com/joey04/xulBlock-Advanced/blob/master/CONTRIBUTING.md) before filing any issue here.
-
+### Issues
 As an Advanced user, you are expected to figure out all website breakage by yourself; don't ask for help here. If the cause is a 3rd-party filter list problem, contact the list maintainer.
+
+Read [CONTRIBUTING](https://github.com/joey04/xulBlock-Advanced/blob/master/CONTRIBUTING.md) before filing any issue here.
 
 ## Table of Contents
 * [Why this fork](#why-this-fork)
@@ -39,6 +38,7 @@ This is why [uBO 1.14.16](https://github.com/gorhill/uBlock/releases/tag/1.14.16
 Prior to releasing xBA, I had already used my modified 1.14.16 for three months in my primary browser, Pale Moon, without any problems. It's a stable, reliable codebase.
 
 ## What's different from uBO
+This section covers all the ways that xBA differs from uBO.
 
 ### HTTP Referer spoofing
 This is the one feature of uMatrix I wanted that wasn't already in uBO, so I added it. See [its wiki page](https://github.com/joey04/xulBlock-Advanced/wiki/HTTP-Referer-spoofing) for all info.
