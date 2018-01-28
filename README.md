@@ -38,10 +38,7 @@ This is why [uBO 1.14.16](https://github.com/gorhill/uBlock/releases/tag/1.14.16
 
 Prior to releasing xBA, I had already used my modified 1.14.16 for three months in my primary browser, Pale Moon, without any problems. It's a stable, reliable codebase.
 
-(I'm not claiming that there won't be a future need for additional capability. I'm simply stating that when I publicly released xBA, it was already capable of doing everything I wanted.)
-
 ## What's different from uBO
-There are important changes in xBA, but the _vast majority_ of behavior remains unchanged, especially from the fork point of [uBO 1.14.16](https://github.com/gorhill/uBlock/releases/tag/1.14.16).
 
 ### HTTP Referer spoofing
 This is the one feature of uMatrix I wanted that wasn't already in uBO, so I added it. See [its wiki page](https://github.com/joey04/xulBlock-Advanced/wiki/HTTP-Referer-spoofing) for all info.
