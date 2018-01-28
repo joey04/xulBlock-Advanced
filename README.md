@@ -2,15 +2,13 @@
 
 xBA is a fork of [uBlock Origin](https://github.com/gorhill/uBlock) (uBO) for browsers that support [XUL](https://en.wikipedia.org/wiki/XUL) add-ons.
 
-I've used xBA on [Pale Moon](http://www.palemoon.org/), [Basilisk](http://www.basilisk-browser.org/), and [Waterfox](https://www.waterfoxproject.org/). The underlying browser interface is unchanged from uBO, so xBA should work on other browsers as well.
+I've used xBA on [Pale Moon](http://www.palemoon.org/), [Basilisk](http://www.basilisk-browser.org/), and [Waterfox](https://www.waterfoxproject.org/). It should work on other browsers too.
 
-### xBA is only for [Advanced users](https://github.com/gorhill/uBlock/wiki/Advanced-user-features)
+### xBA is only for [Advanced user mode](https://github.com/gorhill/uBlock/wiki/Advanced-user-features)
 
-One purpose of xBA is to enhance the Advanced user experience, most prominently with changes to the panel and the ability to spoof Referers. These and other changes are covered below.
+One purpose of xBA is to enhance the Advanced user experience, most prominently with changes to the panel and the ability to spoof Referers. These and other changes are covered in detail below.
 
-For uBO users not already on Advanced mode but interested in learning, xBA is a great way to do so. It's a big learning curve, but xBA can help you learn it more efficiently, especially with its panel improvements for viewing domain connectivity.
-
-I must emphasize, though, that it's important to become comfortable with uBO fundamentals before switching to Advanced mode. Tapping into the power of Advanced mode means you will be breaking websites and thus learning the art of crafting rules to get desired functionality with minimal domain connectivity.
+xBA is not just for current Advanced users, though. It's also a good choice for regular uBO users with a desire to learn Advanced mode. In particular, xBA enables you to quickly view all domain connectivity, which will facilitate the learning process.
 
 ## Issues
 * If you suspect an xBA bug, check the [Known problems](https://github.com/joey04/xulBlock-Advanced/wiki/Known-problems) wiki page and the issue tracker to see if it's already documented.
@@ -32,11 +30,11 @@ As an Advanced user, you are expected to figure out all website breakage by your
 ## Why this fork
 I mentioned earlier that one purpose of xBA is to enhance the Advanced user experience. Another purpose is to maintain the greatness that uBO already attained as a XUL add-on. I personally want to keep using xBA for as long as there are browsers that support it. After all, I use it along with a dozen other XUL add-ons to richly customize my web experience. I have no interest in downgrading to WebExtensions or similar for my primary browser.
 
-I first modified uBO in 2016 to enhance my own Advanced experience, but I didn't think to make a publicly-available fork until January 2018. By then, I'd already accumulated a number of changes and Mozilla had recently removed its support of XUL add-ons in Firefox 57. Starting around mid-2017, gorhill's focus shifted to the new WebExt version of uBO for Firefox, which is understandable for a number of reasons, including WebExt having much in common with the Chrome version. As a result, XUL uBO was effectively mothballed, as shown [here](https://github.com/gorhill/uBlock/wiki/Firefox-WebExtensions/1f950bc8d0bfcd55b281549b89e102575924c0ba#future-of-ubolegacy), [here](https://github.com/gorhill/uBlock/issues/3306), and [here](https://github.com/gorhill/uBlock/issues/3464).
+I first modified uBO in 2016 to enhance my own Advanced usage, but I didn't think to make a publicly-available fork until January 2018. By then, I'd already accumulated a number of changes and Mozilla had recently removed its support of XUL add-ons in Firefox 57. Starting around mid-2017, gorhill's focus shifted to the new WebExt version of uBO for Firefox, which is understandable for a number of reasons, including WebExt having much in common with the Chrome version. As a result, XUL uBO was effectively mothballed, as shown [here](https://github.com/gorhill/uBlock/wiki/Firefox-WebExtensions/1f950bc8d0bfcd55b281549b89e102575924c0ba#future-of-ubolegacy), [here](https://github.com/gorhill/uBlock/issues/3306), and [here](https://github.com/gorhill/uBlock/issues/3464).
 
 This is why [uBO 1.14.16](https://github.com/gorhill/uBlock/releases/tag/1.14.16), released in October 2017, was an easy choice as the fork point for xBA:
 * It's the last version before major refactoring started to land and cause XUL regressions. Prior to the first release of xBA, I used my modified 1.14.16 for three months without any problems. It's a stable, reliable codebase.
-* uBO had already reached a very high level of robustness with an impressive suite of capabilities: dynamic, static, cosmetic, inject, etc. I didn't encounter any scenario it couldn't handle with the appropriate choice of rules.
+* uBO had already reached a very high level of robustness with an impressive suite of capabilities: dynamic, static, cosmetic, inject, etc. Any scenario I encountered could be handled with the appropriate choice of rules.
 
 ## What's different from uBO
 There are important changes in xBA, but the _vast majority_ of behavior remains unchanged, especially from the fork point of [uBO 1.14.16](https://github.com/gorhill/uBlock/releases/tag/1.14.16).
