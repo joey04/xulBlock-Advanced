@@ -2,7 +2,7 @@
 
 xBA is a fork of [uBlock Origin](https://github.com/gorhill/uBlock) (uBO) for browsers that support [XUL](https://en.wikipedia.org/wiki/XUL) add-ons.
 
-I've used it on [Pale Moon](http://www.palemoon.org/), [Basilisk](http://www.basilisk-browser.org/), and [Waterfox](https://www.waterfoxproject.org/). xBA's underlying XUL interface is unchanged from uBO, so it should work on other browsers as well.
+I've used xBA on [Pale Moon](http://www.palemoon.org/), [Basilisk](http://www.basilisk-browser.org/), and [Waterfox](https://www.waterfoxproject.org/). The underlying browser interface is unchanged from uBO, so xBA should work on other browsers as well.
 
 ### xBA is only for [Advanced users](https://github.com/gorhill/uBlock/wiki/Advanced-user-features)
 
