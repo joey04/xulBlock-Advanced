@@ -8,7 +8,7 @@ I've used xBA on [Pale Moon](http://www.palemoon.org/), [Basilisk](http://www.ba
 
 One purpose of xBA is to enhance the Advanced user experience, with a [panel](https://github.com/joey04/xulBlock-Advanced/wiki/The-Panel) designed to quickly assess all domain connectivity.
 
-xBA is not just for current Advanced users, though. It's also a good choice for regular uBO users with a desire to learn Advanced mode.
+xBA is not just for current Advanced users, though. It's also a good choice for regular uBO users with a serious desire to learn Advanced mode.
 
 ### Issues
 As an Advanced user, you are expected to figure out all website breakage by yourself; don't ask for help here. If the cause is a 3rd-party filter list problem, contact the list maintainer.
@@ -23,19 +23,19 @@ Read [CONTRIBUTING](https://github.com/joey04/xulBlock-Advanced/blob/master/CONT
   * [Hotkeys](#hotkeys)
   * [Popup blocking](#blocking-popups)
   * [CSP Report blocking](#blocking-csp-reports)
-  * [Other changes](#other-changes)
+  * [Other differences](#other-differences)
 * [How to Install it](#how-to-install-it)
 
 ## Why this fork
 I mentioned earlier that one purpose of xBA is to enhance the Advanced user experience. Its other purpose is to maintain the high quality that uBO already attained as a XUL add-on.
 
-I first modified uBO in 2016 to improve my own Advanced usage, but I didn't think to make a publicly-available fork until January 2018. By then, I'd already accumulated a number of changes and Mozilla had recently removed its support of XUL add-ons in Firefox 57. Starting around mid-2017, gorhill's focus shifted to the new WebExtension version of uBO for Firefox, which is understandable for a number of reasons, including WebExt having much in common with the Chrome version. As a result, the legacy XUL version was effectively mothballed, as shown [here](https://github.com/gorhill/uBlock/wiki/Firefox-WebExtensions/1f950bc8d0bfcd55b281549b89e102575924c0ba#future-of-ubolegacy), [here](https://github.com/gorhill/uBlock/issues/3306), and [here](https://github.com/gorhill/uBlock/issues/3464).
+I first modified uBO in 2016 to improve my own Advanced usage, but I didn't think to make a publicly-available fork until January 2018. By then, I'd accumulated a number of changes and Mozilla had recently removed its support of XUL add-ons in Firefox 57. Starting around mid-2017, gorhill's focus shifted to the new WebExtension version of uBO for Firefox, which is understandable for a number of reasons, including WebExt having much in common with the Chrome version. As a result, the legacy XUL version was effectively mothballed, as shown [here](https://github.com/gorhill/uBlock/wiki/Firefox-WebExtensions/1f950bc8d0bfcd55b281549b89e102575924c0ba#future-of-ubolegacy), [here](https://github.com/gorhill/uBlock/issues/3306), and [here](https://github.com/gorhill/uBlock/issues/3464).
 
 This is why [uBO 1.14.16](https://github.com/gorhill/uBlock/releases/tag/1.14.16), released in October 2017, was an easy choice as the fork point for xBA.
 * It's the last version before major refactoring started to land and cause XUL regressions.
 * uBO had already reached a high level of quality with a robust suite of capabilities: dynamic, static, cosmetic, inject, etc.
 
-Prior to releasing xBA, I had already used my modified 1.14.16 for three months in my primary browser, Pale Moon, without any problems. It's a stable, reliable codebase.
+Prior to releasing xBA, I used my modified 1.14.16 for three months in Pale Moon without any problems. It's a stable, reliable codebase.
 
 ## What's different from uBO
 This section covers all the ways that xBA differs from uBO.
@@ -66,10 +66,12 @@ I block all of them with: `*$other,domain=~behind-the-scene`
 
 I've done this for a long time in Pale Moon without any problems. CSP Reports have been virtually all of the non-bts `$other` traffic I've seen; the few non-CSPs appear to be stray requests worth blocking anyways. However, behind-the-scene (bts) is a completely different story; I don't whitelist it, so I quickly learned I needed the exception to not block essential requests like file downloads.
 
-### Other changes
+### Other differences
 xBA enforces a strict word-boundary policy for prefix1 rules, as detailed [here](https://github.com/gorhill/uBlock/issues/3011).
 
-xBA's SQLite database is located in your profile base directory, not uBO's sub-directory. The  filename is the same.
+xBA's SQLite database is located in your profile base directory, not uBO's sub-directory. The filename is the same.
+
+Some minor items are covered in the [issue tracker](https://github.com/joey04/xulBlock-Advanced/issues?q=is%3Aissue).
 
 ## How to Install it
 If you have uBO installed, either disable or remove it before installing xBA. Don't run uBO and xBA at the same time because strange things may happen. (Likewise, disable AdBlock Plus or any other blocker extension. Only use one blocker at a time.)
