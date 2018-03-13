@@ -2,7 +2,7 @@
 <RDF xmlns="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:em="http://www.mozilla.org/2004/em-rdf#">
     <Description about="urn:mozilla:install-manifest">
         <em:id>xulblock@advanced</em:id>
-        <em:version>1.0</em:version>
+        <em:version>1.1</em:version>
         <em:name>xulBlock Advanced</em:name>
         <em:description>XUL fork of uBlock Origin for Advanced users</em:description>
         <em:homepageURL>https://github.com/joey04/xulBlock-Advanced</em:homepageURL>
