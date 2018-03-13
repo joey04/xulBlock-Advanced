@@ -123,7 +123,7 @@ var onMessage = function(request, sender, callback) {
 
     case 'forceUpdateAssets':
         µb.scheduleAssetUpdater(0);
-        µb.assets.updateStart({ delay: µb.hiddenSettings.manualUpdateAssetFetchPeriod || 2000 });
+        µb.assets.updateStart({ delay: µb.hiddenSettings.manualUpdateAssetFetchPeriod });
         break;
 
     case 'getAppData':
@@ -493,12 +493,13 @@ var onMessage = function(request, sender, callback) {
             response = {
                 loggerEnabled: µb.logger.isEnabled(),
                 collapseBlocked: µb.userSettings.collapseBlocked,
-                noCosmeticFiltering: µb.cosmeticFilteringEngine.acceptedCount === 0 || pageStore.noCosmeticFiltering === true,
+                noCosmeticFiltering: pageStore.noCosmeticFiltering === true,
                 noGenericCosmeticFiltering: pageStore.noGenericCosmeticFiltering === true
             };
             response.specificCosmeticFilters = µb.cosmeticFilteringEngine.retrieveDomainSelectors(
                 request,
-                response.noCosmeticFiltering
+                response.noCosmeticFiltering,
+                sender.tab.id
             );
         }
         break;

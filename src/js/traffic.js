@@ -302,23 +302,20 @@ var onBeforeRootFrameRequest = function(details) {
 
 /******************************************************************************/
 
+// https://github.com/gorhill/uBlock/issues/3208
+//   Mind case insensitivity.
+
 var toBlockDocResult = function(url, hostname, logData) {
-    if ( typeof logData.regex !== 'string' ) { return; }
-    var re = new RegExp(logData.regex),
+    if ( typeof logData.regex !== 'string' ) { return false; }
+    var re = new RegExp(logData.regex, 'i'),
         match = re.exec(url.toLowerCase());
-    if ( match === null ) { return ''; }
+    if ( match === null ) { return false; }
 
     // https://github.com/chrisaljoudi/uBlock/issues/1128
     // https://github.com/chrisaljoudi/uBlock/issues/1212
     // Relax the rule: verify that the match is completely before the path part
-    if (
-        (match.index + match[0].length) <=
-        (url.indexOf(hostname) + hostname.length + 1)
-    ) {
-        return true;
-    }
-
-    return false;
+    return (match.index + match[0].length) <=
+           (url.indexOf(hostname) + hostname.length + 1);
 };
 
 /******************************************************************************/

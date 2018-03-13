@@ -58,6 +58,7 @@ var typeNameToTypeValue = {
         'stylesheet':  1 << 4,
              'image':  2 << 4,
             'object':  3 << 4,
+ 'object_subrequest':  3 << 4,
             'script':  4 << 4,
     'xmlhttprequest':  5 << 4,
          'sub_frame':  6 << 4,
@@ -1388,10 +1389,12 @@ var FilterParser = function() {
 
 FilterParser.prototype.toNormalizedType = {
             'beacon': 'other',
+               'css': 'stylesheet',
               'data': 'data',
           'document': 'main_frame',
           'elemhide': 'generichide',
               'font': 'font',
+             'frame': 'sub_frame',
       'genericblock': 'unsupported',
        'generichide': 'generichide',
              'image': 'image',
@@ -1399,14 +1402,15 @@ FilterParser.prototype.toNormalizedType = {
      'inline-script': 'inline-script',
              'media': 'media',
             'object': 'object',
-             'other': 'other',
  'object-subrequest': 'object',
+             'other': 'other',
               'ping': 'other',
           'popunder': 'popunder',
              'popup': 'popup',
             'script': 'script',
         'stylesheet': 'stylesheet',
        'subdocument': 'sub_frame',
+               'xhr': 'xmlhttprequest',
     'xmlhttprequest': 'xmlhttprequest',
             'webrtc': 'unsupported',
          'websocket': 'websocket'
@@ -1520,7 +1524,7 @@ FilterParser.prototype.parseOptions = function(s) {
         if ( not ) {
             opt = opt.slice(1);
         }
-        if ( opt === 'third-party' ) {
+        if ( opt === 'third-party' || opt === '3p' ) {
             this.parsePartyOption(false, not);
             continue;
         }
@@ -1563,7 +1567,7 @@ FilterParser.prototype.parseOptions = function(s) {
             this.important = Important;
             continue;
         }
-        if ( opt === 'first-party' ) {
+        if ( opt === 'first-party' || opt === '1p' ) {
             this.parsePartyOption(true, not);
             continue;
         }
@@ -1745,7 +1749,7 @@ FilterParser.prototype.parse = function(raw) {
             //   Abort if type is only for unsupported types, otherwise
             //   toggle off `unsupported` bit.
             if ( this.types & this.unsupportedTypeBit ) {
-                this.types &= ~(this.unsupportedTypeBit | this.allNetRequestTypeBits);
+                this.types &= ~this.unsupportedTypeBit;
                 if ( this.types === 0 ) {
                     this.unsupported = true;
                     return this;
@@ -1824,14 +1828,14 @@ FilterParser.prototype.parse = function(raw) {
     // https://github.com/gorhill/uBlock/issues/3034
     // - We can remove anchoring if we need to match all at the start.
     if ( s.startsWith('*') ) {
-        s = s.replace(/^\*+([^%0-9a-z])/, '$1');
+        s = s.replace(/^\*+([^%0-9a-z])/i, '$1');
         this.anchor &= ~0x6;
     }
     // remove pointless trailing *
     // https://github.com/gorhill/uBlock/issues/3034
     // - We can remove anchoring if we need to match all at the end.
     if ( s.endsWith('*') ) {
-        s = s.replace(/([^%0-9a-z])\*+$/, '$1');
+        s = s.replace(/([^%0-9a-z])\*+$/i, '$1');
         this.anchor &= ~0x1;
     }
 

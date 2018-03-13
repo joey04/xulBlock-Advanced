@@ -100,6 +100,10 @@ var fromCosmeticFilter = function(details) {
         prefix = match[0],
         filter = details.rawFilter.slice(prefix.length);
 
+    if ( filter.startsWith('+js') ) {
+        filter = 'script:inject' + filter.substring(3);
+    }
+
     // https://github.com/gorhill/uBlock/issues/3101
     //   Use `m` flag for efficient regex execution.
     var reFilter = new RegExp(

@@ -781,7 +781,10 @@ api.metadata = function(callback) {
                 obsoleteAfter = cacheEntry.writeTime + assetEntry.updateAfter * 86400000;
                 assetEntry.obsolete = obsoleteAfter < now;
                 assetEntry.remoteURL = cacheEntry.remoteURL;
-            } else {
+            } else if (
+                assetEntry.contentURL &&
+                assetEntry.contentURL.length !== 0
+            ) {
                 assetEntry.writeTime = 0;
                 obsoleteAfter = 0;
                 assetEntry.obsolete = true;
@@ -914,7 +917,9 @@ var updateDone = function() {
 
 api.updateStart = function(details) {
     var oldUpdateDelay = updaterAssetDelay,
-        newUpdateDelay = details.delay || updaterAssetDelayDefault;
+        newUpdateDelay = typeof details.delay === 'number' ?
+            details.delay :
+            updaterAssetDelayDefault;
     updaterAssetDelay = Math.min(oldUpdateDelay, newUpdateDelay);
     if ( updaterStatus !== undefined ) {
         if ( newUpdateDelay < oldUpdateDelay ) {

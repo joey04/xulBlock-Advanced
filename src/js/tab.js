@@ -334,11 +334,16 @@ housekeep itself.
     // tab, there is no longer any ambiguity about which root URL is really
     // sitting in which tab.
     TabContext.prototype.commit = function(url) {
-        if ( vAPI.isBehindTheSceneTabId(this.tabId) ) {
-            return;
+        if ( vAPI.isBehindTheSceneTabId(this.tabId) ) { return; }
+        if ( this.stack.length !== 0 ) {
+            var top = this.stack[this.stack.length - 1];
+            if ( top.url === url && top.committed ) {
+                return false;
+            }
         }
         this.stack = [new StackEntry(url, true)];
         this.update();
+        return true;
     };
 
     TabContext.prototype.getNetFilteringSwitch = function() {
@@ -411,8 +416,7 @@ housekeep itself.
         var entry = tabContexts[tabId];
         if ( entry === undefined ) {
             entry = push(tabId, url);
-        } else {
-            entry.commit(url);
+        } else if ( entry.commit(url) ) {
             popupCandidateTest(tabId);
         }
         return entry;
@@ -499,7 +503,6 @@ vAPI.tabs.onUpdated = function(tabId, changeInfo, tab) {
     if ( !changeInfo.url ) {
         return;
     }
-
     µb.tabContextManager.commit(tabId, changeInfo.url);
     µb.bindTabToPageStats(tabId, 'tabUpdated');
 };
@@ -544,18 +547,23 @@ vAPI.tabs.onPopupUpdated = (function() {
         logData;
 
     // https://github.com/gorhill/uBlock/commit/1d448b85b2931412508aa01bf899e0b6f0033626#commitcomment-14944764
-    // See if two URLs are different, disregarding scheme -- because the scheme
-    // can be unilaterally changed by the browser.
+    //   See if two URLs are different, disregarding scheme -- because the scheme
+    //   can be unilaterally changed by the browser.
+    // https://github.com/gorhill/uBlock/issues/1378
+    //   Maybe no link element was clicked.
+    // https://github.com/gorhill/uBlock/issues/3287
+    //   Do not bail out if the target URL has no hostname.
     var areDifferentURLs = function(a, b) {
-        // https://github.com/gorhill/uBlock/issues/1378
-        // Maybe no link element was clicked.
         if ( b === '' ) { return true; }
+        if ( b.startsWith('about:') ) { return false; }
         var pos = a.indexOf('://');
         if ( pos === -1 ) { return false; }
         a = a.slice(pos);
         pos = b.indexOf('://');
-        if ( pos === -1 ) { return false; }
-        return b.slice(pos) !== a;
+        if ( pos !== -1 ) {
+            b = b.slice(pos);
+        }
+        return b !== a;
     };
 
     var popupMatch = function(openerURL, targetURL, popupType) {
